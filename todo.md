@@ -19,8 +19,8 @@
 
 ## Publicación y respaldo
 
-- [ ] Verificar el estado del repositorio, excluir archivos generados y preparar un paquete reproducible.
-- [ ] Crear o actualizar un repositorio privado de GitHub con el código fuente del portfolio.
-- [ ] Crear una carpeta de respaldo con `src`, `docs`, `tests` y `assets`, además del archivo ZIP fechado.
-- [ ] Subir el paquete de respaldo y la estructura de archivos a Google Drive.
-- [ ] Verificar las URLs de GitHub y Drive, y entregar el resultado.
+- [x] Verificar el estado del repositorio, excluir archivos generados y preparar un paquete reproducible.
+- [x] Crear un repositorio privado de GitHub con el código fuente del portfolio: `belentani7/belentani-portfolio`.
+- [x] Crear una carpeta de respaldo con `src`, `docs`, `tests` y `assets`, además del archivo ZIP fechado.
+- [x] Subir el paquete de respaldo y la estructura de archivos a Google Drive.
+- [x] Verificar las URLs de GitHub y Drive, y entregar el resultado.
