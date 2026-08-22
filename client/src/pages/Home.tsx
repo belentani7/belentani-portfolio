@@ -1,282 +1,195 @@
-import { useState } from 'react';
-import PlanetScene from '@/components/PlanetScene';
-import HackingOverlay from '@/components/HackingOverlay';
-import GlitchEffect from '@/components/GlitchEffect';
-import { Button } from '@/components/ui/button';
+/* DESIGN: Órbita de Judas — narrativa editorial espacial, roja, calmada y legible. */
+import { useEffect, useMemo, useState } from "react";
+import { ArrowDown, ArrowUpRight, Disc3, Orbit, Play, Sparkles } from "lucide-react";
+import ContactComposer from "@/components/ContactComposer";
+import OrbitalScene from "@/components/OrbitalScene";
+import VisitorPanel from "@/components/VisitorPanel";
 
-type Section = 'home' | 'artist' | 'music' | 'studio' | 'judas' | 'contact';
+type SectionId = "home" | "artist" | "music" | "studio" | "judas" | "contact";
+
+const navigation: Array<{ id: SectionId; label: string; signal: string }> = [
+  { id: "home", label: "Home", signal: "00" },
+  { id: "artist", label: "The Artist", signal: "01" },
+  { id: "music", label: "Music", signal: "02" },
+  { id: "studio", label: "Studio", signal: "03" },
+  { id: "judas", label: "Judas", signal: "04" },
+  { id: "contact", label: "Contact", signal: "05" },
+];
+
+const tracks = [
+  ["Mon Amour", "Archivo sonoro"],
+  ["Therapist", "Archivo sonoro"],
+  ["Apaga a Luz", "Archivo sonoro"],
+  ["I Wrote a Song", "Archivo sonoro"],
+];
 
 export default function Home() {
-  const [currentSection, setCurrentSection] = useState<Section>('home');
-  const [showContent, setShowContent] = useState(false);
+  const [activeSection, setActiveSection] = useState<SectionId>("home");
+  const activeIndex = useMemo(
+    () => Math.max(0, navigation.findIndex((item) => item.id === activeSection)),
+    [activeSection],
+  );
 
-  const handleNavigate = (section: Section) => {
-    setShowContent(false);
-    setTimeout(() => {
-      setCurrentSection(section);
-      setShowContent(true);
-    }, 800);
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const next = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (next) setActiveSection(next.target.id as SectionId);
+      },
+      { rootMargin: "-42% 0px -45% 0px", threshold: [0.1, 0.35, 0.6] },
+    );
 
-  const renderContent = () => {
-    switch (currentSection) {
-      case 'home':
-        return (
-          <div className="text-center">
-            <h1 className="text-6xl font-bold mb-4 text-[#FF0033]">BELENTANI</h1>
-            <p className="text-2xl text-[#00FF88] mb-8">Symphony of Vines</p>
-            <p className="text-lg text-[#E0E0E0] mb-8 max-w-2xl mx-auto">
-              Next Release: <span className="text-[#FF0033] font-bold">JUDAS</span>
-            </p>
-            <div className="flex gap-4 justify-center">
-              <Button
-                onClick={() => handleNavigate('artist')}
-                className="bg-[#FF0033] hover:bg-[#FF1744] text-white"
-              >
-                The Artist
-              </Button>
-              <Button
-                onClick={() => handleNavigate('music')}
-                className="border border-[#FF0033] text-[#FF0033] hover:bg-[#FF0033] hover:text-white"
-              >
-                Music
-              </Button>
-            </div>
-          </div>
-        );
+    navigation.forEach(({ id }) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
 
-      case 'artist':
-        return (
-          <div>
-            <h2 className="text-5xl font-bold mb-6 text-[#FF0033]">The Artist</h2>
-            <div className="space-y-4 text-[#E0E0E0] max-w-3xl">
-              <p>
-                Emerging from the concrete arteries of São Paulo and forged in the shadows of Barcelona, Pedro Belentani is not merely a creator, but the bearer of an anomalous resonance.
-              </p>
-              <p>
-                A sonic architect wandering through the neon echoes of a fractured reality. His career didn't just launch; it detonated at 21 in the closed circuits of electronic music.
-              </p>
-              <p>
-                Since then, he has mutated into a hybrid, hypnotic sound—an amalgam of dark pop, visceral R&B, and synthetic electronic pulses that he uses not as art, but as an existential survival mechanism.
-              </p>
-              <p className="text-[#00FF88] pt-4">
-                Operating from Barcelona, Belentani has established himself as one of the most lethal, inescapable, and fascinating voices of the Luso-Spanish hybrid scene.
-              </p>
-            </div>
-            <Button
-              onClick={() => handleNavigate('home')}
-              className="mt-8 bg-[#FF0033] hover:bg-[#FF1744] text-white"
-            >
-              Back to Home
-            </Button>
-          </div>
-        );
+    return () => observer.disconnect();
+  }, []);
 
-      case 'music':
-        return (
-          <div>
-            <h2 className="text-5xl font-bold mb-6 text-[#FF0033]">Music</h2>
-            <div className="space-y-6 text-[#E0E0E0] max-w-3xl">
-              <div className="border-l-2 border-[#FF0033] pl-4">
-                <h3 className="text-2xl font-bold text-[#00FF88] mb-2">Judas (2026)</h3>
-                <p>The most dangerous and definitive manifesto. A sonic journey through betrayal and redemption.</p>
-              </div>
-              <div className="border-l-2 border-[#FF0033] pl-4">
-                <h3 className="text-2xl font-bold text-[#00FF88] mb-2">Mon Amour (2025)</h3>
-                <p>An auditory anomaly born from the alliance with producer Duck.</p>
-              </div>
-              <div className="border-l-2 border-[#FF0033] pl-4">
-                <h3 className="text-2xl font-bold text-[#00FF88] mb-2">Therapist & I Wrote a Song</h3>
-                <p>High-frequency transmissions exploring the depths of human consciousness.</p>
-              </div>
-            </div>
-            <Button
-              onClick={() => handleNavigate('home')}
-              className="mt-8 bg-[#FF0033] hover:bg-[#FF1744] text-white"
-            >
-              Back to Home
-            </Button>
-          </div>
-        );
-
-      case 'studio':
-        return (
-          <div>
-            <h2 className="text-5xl font-bold mb-6 text-[#FF0033]">Studio</h2>
-            <div className="space-y-4 text-[#E0E0E0] max-w-3xl">
-              <p>
-                Collaborating with producer <span className="text-[#00FF88] font-bold">Duck Prod</span>, Belentani creates in Barcelona.
-              </p>
-              <p>
-                The studio is not just a space—it's a frequency. Where technology meets soul, where code becomes song.
-              </p>
-              <p className="text-[#FF0033]">
-                3000 particles in motion. Infinite possibilities.
-              </p>
-            </div>
-            <Button
-              onClick={() => handleNavigate('home')}
-              className="mt-8 bg-[#FF0033] hover:bg-[#FF1744] text-white"
-            >
-              Back to Home
-            </Button>
-          </div>
-        );
-
-      case 'judas':
-        return (
-          <div>
-            <h2 className="text-5xl font-bold mb-6 text-[#FF0033]">JUDAS</h2>
-            <div className="space-y-4 text-[#E0E0E0] max-w-3xl">
-              <p>
-                A sci-fi messianic narrative. Judas and St. Peter—once inseparable brothers—now locked in an eternal dance of betrayal and redemption.
-              </p>
-              <p>
-                This is not a song. This is a frequency. A transmission from another dimension.
-              </p>
-              <p className="text-[#00FF88] font-bold">
-                Coming 2026
-              </p>
-            </div>
-            <Button
-              onClick={() => handleNavigate('home')}
-              className="mt-8 bg-[#FF0033] hover:bg-[#FF1744] text-white"
-            >
-              Back to Home
-            </Button>
-          </div>
-        );
-
-      case 'contact':
-        return (
-          <div>
-            <h2 className="text-5xl font-bold mb-6 text-[#FF0033]">Contact</h2>
-            <form className="space-y-4 max-w-2xl">
-              <div>
-                <label className="block text-[#00FF88] mb-2">Name</label>
-                <input
-                  type="text"
-                  className="w-full bg-[#0A0E27] border border-[#FF0033] text-white p-2 rounded"
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label className="block text-[#00FF88] mb-2">Email</label>
-                <input
-                  type="email"
-                  className="w-full bg-[#0A0E27] border border-[#FF0033] text-white p-2 rounded"
-                  placeholder="your@email.com"
-                />
-              </div>
-              <div>
-                <label className="block text-[#00FF88] mb-2">Message</label>
-                <textarea
-                  className="w-full bg-[#0A0E27] border border-[#FF0033] text-white p-2 rounded h-32"
-                  placeholder="Your message..."
-                />
-              </div>
-              <Button className="bg-[#FF0033] hover:bg-[#FF1744] text-white">
-                Send
-              </Button>
-            </form>
-            <Button
-              onClick={() => handleNavigate('home')}
-              className="mt-8 bg-[#FF0033] hover:bg-[#FF1744] text-white"
-            >
-              Back to Home
-            </Button>
-          </div>
-        );
-
-      default:
-        return null;
-    }
+  const moveTo = (id: SectionId) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <div className="w-full h-screen bg-black overflow-hidden">
-      {/* 3D Planet Scene */}
-      <PlanetScene onNavigate={handleNavigate} />
+    <div className="site-shell">
+      <a className="skip-link" href="#home">Saltar al contenido</a>
+      <OrbitalScene activeIndex={activeIndex} />
 
-      {/* Navigation Menu */}
-      <nav className="fixed top-8 left-4 md:left-8 z-40 space-y-2">
-        <div className="text-[#FF0033] font-bold text-sm md:text-lg mb-4">BELENTANI</div>
-        <button
-          onClick={() => handleNavigate('home')}
-          className={`block text-xs md:text-sm font-mono transition-colors ${
-            currentSection === 'home' ? 'text-[#FF0033]' : 'text-[#E0E0E0] hover:text-[#00FF88]'
-          }`}
-        >
-          &gt; Home
+      <header className="site-header">
+        <button className="brand-lockup" type="button" onClick={() => moveTo("home")} aria-label="Volver al inicio">
+          <span className="brand-mark">B</span>
+          <span className="brand-axis" aria-hidden="true" />
+          <span className="brand-name">/ BELENTANI</span>
         </button>
-        <button
-          onClick={() => handleNavigate('artist')}
-          className={`block text-sm font-mono transition-colors ${
-            currentSection === 'artist' ? 'text-[#FF0033]' : 'text-[#E0E0E0] hover:text-[#00FF88]'
-          }`}
-        >
-          &gt; The Artist
-        </button>
-        <button
-          onClick={() => handleNavigate('music')}
-          className={`block text-sm font-mono transition-colors ${
-            currentSection === 'music' ? 'text-[#FF0033]' : 'text-[#E0E0E0] hover:text-[#00FF88]'
-          }`}
-        >
-          &gt; Music
-        </button>
-        <button
-          onClick={() => handleNavigate('studio')}
-          className={`block text-sm font-mono transition-colors ${
-            currentSection === 'studio' ? 'text-[#FF0033]' : 'text-[#E0E0E0] hover:text-[#00FF88]'
-          }`}
-        >
-          &gt; Studio
-        </button>
-        <button
-          onClick={() => handleNavigate('judas')}
-          className={`block text-sm font-mono transition-colors ${
-            currentSection === 'judas' ? 'text-[#FF0033]' : 'text-[#E0E0E0] hover:text-[#00FF88]'
-          }`}
-        >
-          &gt; Judas
-        </button>
-        <button
-          onClick={() => handleNavigate('contact')}
-          className={`block text-sm font-mono transition-colors ${
-            currentSection === 'contact' ? 'text-[#FF0033]' : 'text-[#E0E0E0] hover:text-[#00FF88]'
-          }`}
-        >
-          &gt; Contact
-        </button>
+        <div className="header-status"><span /> JUDAS / SIGNAL ACTIVE</div>
+      </header>
+
+      <nav className="orbit-nav" aria-label="Capítulos de la experiencia">
+        <p className="orbit-nav__title">ZION / ORBIT</p>
+        <ol>
+          {navigation.map((item) => (
+            <li key={item.id}>
+              <button
+                type="button"
+                className={activeSection === item.id ? "is-active" : ""}
+                onClick={() => moveTo(item.id)}
+                aria-current={activeSection === item.id ? "page" : undefined}
+              >
+                <span className="orbit-nav__signal">{item.signal}</span>
+                <span>{item.label}</span>
+              </button>
+            </li>
+          ))}
+        </ol>
       </nav>
 
-      {/* Content Overlay */}
-      {showContent && (
-        <div className="fixed inset-0 z-30 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-          <div
-            className={`bg-[#0A0E27] border-2 border-[#FF0033] p-6 md:p-12 rounded max-w-4xl max-h-[80vh] overflow-y-auto transition-all duration-500 ${
-              showContent ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
-            style={{
-              boxShadow: '0 0 20px rgba(255, 0, 51, 0.3)',
-            }}
-          >
-            {renderContent()}
+      <main>
+        <section id="home" data-orbit="00" className="story-section story-section--hero" aria-labelledby="home-title">
+          <div className="story-section__meta">TRANSMISSION / 2026</div>
+          <div className="hero-copy">
+            <p className="eyebrow">next release / judas</p>
+            <h1 id="home-title">La señal no llegó desde lejos.<br /><em>La construimos aquí.</em></h1>
+            <p className="hero-copy__lead">BELENTANI abre una nueva órbita: voz, imagen y una mitología de ciencia ficción que se escucha antes de explicarse.</p>
+            <div className="hero-actions">
+              <button className="signal-button" type="button" onClick={() => moveTo("judas")}>Entrar en la órbita <ArrowUpRight size={17} /></button>
+              <button className="text-button" type="button" onClick={() => moveTo("music")}>Explorar música <Play size={15} fill="currentColor" /></button>
+            </div>
           </div>
-        </div>
-      )}
+          <div className="hero-footnote"><ArrowDown size={14} /> scroll para navegar por la órbita</div>
+        </section>
 
-      {/* Hacking Overlay */}
-      <HackingOverlay />
+        <section id="artist" data-orbit="01" className="story-section" aria-labelledby="artist-title">
+          <div className="story-section__meta">01 / THE ARTIST</div>
+          <div className="chapter-grid chapter-grid--artist">
+            <div>
+              <p className="eyebrow">archivo recuperado</p>
+              <h2 id="artist-title">Una voz en movimiento entre ciudades, géneros y símbolos.</h2>
+            </div>
+            <div className="chapter-copy">
+              <p>Pedro Belentani desarrolla un universo artístico situado entre el R&amp;B, el pop y la electrónica experimental. La música no aparece aislada: convive con imagen, performance y una escritura de mundo propia.</p>
+              <p>Desde Barcelona, el proyecto mira hacia São Paulo y Recife como puntos de una misma ruta creativa. Esta web reúne esa trayectoria como un archivo vivo, no como una biografía cerrada.</p>
+              <button className="text-button" type="button" onClick={() => moveTo("studio")}>Ver el proceso <ArrowUpRight size={15} /></button>
+            </div>
+          </div>
+          <aside className="quote-block">“La órbita no es una fuga. Es una forma de volver con otra voz.”</aside>
+        </section>
 
-      {/* Glitch Effect */}
-      <GlitchEffect />
+        <section id="music" data-orbit="02" className="story-section" aria-labelledby="music-title">
+          <div className="story-section__meta">02 / MUSIC</div>
+          <div className="chapter-grid">
+            <div>
+              <p className="eyebrow">sonic archive</p>
+              <h2 id="music-title">Canciones como coordenadas.</h2>
+              <p className="section-intro">Una selección de títulos que dibuja el paso entre la intimidad vocal, el pulso electrónico y la nueva etapa Judas.</p>
+            </div>
+            <ol className="track-list">
+              {tracks.map(([track, description], index) => (
+                <li key={track}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <strong>{track}</strong>
+                  <em>{description}</em>
+                  <Disc3 size={17} />
+                </li>
+              ))}
+            </ol>
+          </div>
+          <p className="disclosure">Los enlaces de streaming se añadirán cuando se compartan las URLs oficiales.</p>
+        </section>
 
-      {/* Language selector */}
-      <div className="fixed top-8 right-8 z-40 text-[#E0E0E0] text-xs font-mono">
-        <span className="text-[#FF0033]">EN</span> | ES
-      </div>
+        <section id="studio" data-orbit="03" className="story-section" aria-labelledby="studio-title">
+          <div className="story-section__meta">03 / STUDIO</div>
+          <div className="chapter-grid chapter-grid--studio">
+            <div>
+              <p className="eyebrow">process / not a preset</p>
+              <h2 id="studio-title">El estudio como lugar de traducción.</h2>
+            </div>
+            <div className="process-list">
+              <article><span>01</span><h3>Voz</h3><p>La melodía arranca como una presencia física: cercana, respirada y sin pulir de más.</p></article>
+              <article><span>02</span><h3>Textura</h3><p>Sintetizadores, silencios y capas vocales convierten el gesto emocional en arquitectura sonora.</p></article>
+              <article><span>03</span><h3>Imagen</h3><p>Las piezas visuales no ilustran la canción: extienden su tensión hacia otra dimensión.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section id="judas" data-orbit="04" className="story-section story-section--judas" aria-labelledby="judas-title">
+          <div className="story-section__meta">04 / JUDAS</div>
+          <div className="judas-layout">
+            <div>
+              <p className="eyebrow">mythology / artistic fiction</p>
+              <h2 id="judas-title">El Guardián, el Artefacto y una llave que cambia de manos.</h2>
+            </div>
+            <div className="chapter-copy">
+              <p><strong>Judas</strong> es una mitología artística de ciencia ficción. San Pedro aparece como figura de ancla; Judas, como una fuerza de ambición y fractura; el Artefacto, como aquello que una voz protege cuando el relato se vuelve inestable.</p>
+              <p>La historia no describe personas reales ni diagnostica identidades. Es una ficción sobre lealtad, deseo y el coste de intentar poseer una señal que no se puede controlar.</p>
+              <div className="interference-card"><Sparkles size={18} /><span>INTERFERENCIA DETECTADA</span><p>La señal se fragmenta, pero la órbita permanece.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" data-orbit="05" className="story-section story-section--contact" aria-labelledby="contact-title">
+          <div className="story-section__meta">05 / CONTACT</div>
+          <div className="contact-grid">
+            <div>
+              <p className="eyebrow">open channel</p>
+              <h2 id="contact-title">Escribe desde tu punto de la órbita.</h2>
+              <p className="section-intro">Para management, colaboraciones, prensa o una idea que necesite llegar con precisión.</p>
+              <p className="contact-note">El destinatario oficial de correo se añadirá cuando se proporcione. Hasta entonces, el formulario abre un borrador local y no guarda información.</p>
+            </div>
+            <ContactComposer />
+          </div>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <span>© 2026 B / BELENTANI</span>
+        <span>JUDAS / ORBITAL EDITION</span>
+        <button type="button" onClick={() => moveTo("home")}>Volver a la señal <Orbit size={15} /></button>
+      </footer>
+
+      <VisitorPanel />
     </div>
   );
 }
