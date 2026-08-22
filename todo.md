@@ -8,3 +8,11 @@
 - [x] Implementar un formulario de contacto accesible y un panel técnico transparente sin simular IP ni rastreo real.
 - [x] Comprobar la interfaz en escritorio y móvil, corregir hallazgos y validar el build.
 - [ ] Guardar un checkpoint y entregar el proyecto con las limitaciones y próximos pasos.
+
+## Corrección: de portada a portfolio
+
+- [x] Reorganizar la página como un archivo de obras, no como una secuencia exclusivamente narrativa.
+- [x] Crear entradas de portfolio para música, visuales, colaboraciones y era Judas con formato, rol, año y enlace pendiente.
+- [x] Añadir filtros, rutas de exploración, resúmenes de proyecto y CTAs explícitos para enlaces oficiales pendientes.
+- [x] Convertir la biografía y la mitología Judas en contexto editorial secundario, no en el contenido dominante.
+- [x] Probar la nueva composición de portfolio en escritorio y móvil, validar el build y guardar un checkpoint actualizado.

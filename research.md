@@ -29,3 +29,10 @@ El análisis de diseño publicado por Code Barcelona enfatiza que el buen diseñ
 [2]: https://unread.unseen.co/the-symphony-of-vines-dev-insights-c284cc4e8aa0 "The Symphony of Vines: Dev Insights — Unseen Studio"
 [3]: https://www.awwwards.com/sites/the-symphony-of-vines "The Symphony of Vines — Awwwards"
 [4]: https://codewebbarcelona.com/mejores-disenos-web-2026/ "Mejores diseños web de 2026 — Code Barcelona"
+
+## Enlaces públicos verificados para el portfolio
+
+La búsqueda localizó un perfil de artista de **Belentani** en Spotify y un perfil de Instagram `@belentani_`. El perfil de Instagram muestra referencias explícitas a “Mon Amour” en Spotify y destaca “Judas”, por lo que se incorpora como enlace de seguimiento verificable. [5] [6]
+
+[5]: https://open.spotify.com/artist/2bU5Ir70YHHuUnq2f3WCYl "Belentani — Spotify"
+[6]: https://www.instagram.com/belentani_/ "Ɓelentani (@belentani_) — Instagram"
