@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Pedro Belentani | AI Engineer & Creative Technologist</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { margin: 0; size: A4; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --accent: #ff073a;
+    --accent-light: rgba(255, 7, 58, 0.08);
+    --accent-glow: rgba(255, 7, 58, 0.15);
+    --text-primary: #1a1a1a;
+    --text-secondary: #555;
+    --text-muted: #888;
+    --border: #e8e8e8;
+    --bg-subtle: #fafafa;
+    --bg-tag: #f3f3f3;
+    --timeline-line: #ddd;
+    --bar-bg: #f0f0f0;
+    --bar-fill: var(--accent);
+  }
+
+  body {
+    font-family: 'Inter', 'Space Grotesk', system-ui, sans-serif;
+    background: #fff;
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 24px;
+    margin-bottom: 36px;
+    position: relative;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--text-primary);
+  }
+  .name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.15;
+    color: var(--text-primary);
+  }
+  .title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 6px;
+    font-weight: 500;
+  }
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 14px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+  .contact span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 32px;
+  }
+  .section-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── SUMMARY ── */
+  .summary {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    border-left: 3px solid var(--accent);
+    padding-left: 18px;
+    font-weight: 400;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--border));
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 28px;
+  }
+  .timeline-item:last-child {
+    margin-bottom: 0;
+  }
+  .timeline-dot {
+    position: absolute;
+    left: -28px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px var(--accent);
+    z-index: 1;
+  }
+  .timeline-item.current .timeline-dot {
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 2px var(--accent), 0 0 0 0 var(--accent-glow); }
+    50% { box-shadow: 0 0 0 2px var(--accent), 0 0 0 6px transparent; }
+  }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .exp-role {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+  }
+  .exp-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    background: var(--bg-subtle);
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+  .exp-company {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .exp-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .exp-list li {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 16px;
+    line-height: 1.6;
+  }
+  .exp-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ── SKILL PROGRESS BARS ── */
+  .skills-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .skill-cat {
+    background: var(--bg-subtle);
+    border-radius: 8px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+  }
+  .skill-cat h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .skill-bar-wrap {
+    margin-bottom: 8px;
+  }
+  .skill-bar-wrap:last-child {
+    margin-bottom: 0;
+  }
+  .skill-bar-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+  .skill-bar-label span:first-child {
+    font-size: 0.76rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+  .skill-bar-label span:last-child {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--text-muted);
+  }
+  .skill-bar {
+    height: 5px;
+    background: var(--bar-bg);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .skill-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: var(--accent);
+    transition: width 0.6s ease;
+  }
+
+  /* ── SKILL TAGS (secondary) ── */
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  .skill-tag {
+    padding: 3px 10px;
+    background: var(--bg-tag);
+    border-radius: 4px;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    font-weight: 400;
+  }
+
+  /* ── PROJECT HIGHLIGHTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .project-card {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .project-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 2px 12px var(--accent-glow);
+  }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent);
+  }
+  .project-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .project-type {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .project-desc {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 10px;
+  }
+  .project-tech span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    background: var(--bg-tag);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-item {
+    margin-bottom: 14px;
+    padding-left: 16px;
+    border-left: 2px solid var(--border);
+  }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-degree {
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--text-primary);
+  }
+  .edu-school {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .edu-status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent);
+    margin-top: 2px;
+    font-weight: 500;
+  }
+
+  /* ── LANGUAGES ── */
+  .languages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .lang-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+  }
+  .lang-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .lang-dot.secondary {
+    background: var(--text-muted);
+  }
+
+  /* ── DIFFERENTIATOR ── */
+  .diff-badge {
+    display: inline-block;
+    background: var(--accent-light);
+    border: 1px solid rgba(255, 7, 58, 0.2);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    width: 100%;
+  }
+  .diff-badge strong {
+    color: var(--accent);
+  }
+
+  /* ── PRINT STYLES ── */
+  @media print {
+    body { background: #fff; }
+    .page { padding: 20px 24px; max-width: none; }
+    .header { margin-bottom: 20px; padding-bottom: 14px; }
+    .section { margin-bottom: 18px; }
+    .section-title { margin-bottom: 10px; }
+    .project-card { break-inside: avoid; border-color: #ddd; }
+    .project-card:hover { box-shadow: none; border-color: #ddd; }
+    .skill-cat { break-inside: avoid; }
+    .timeline-item { break-inside: avoid; }
+    .timeline-dot { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .skill-bar-fill { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .diff-badge { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .lang-dot { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    @page { margin: 10mm; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="name">Pedro Marcos Santos Belentani</div>
+    <div class="title">AI Engineer & Creative Technologist</div>
+    <div class="contact">
+      <span>📍 L'Hospitalet de Llobregat, Barcelona, España</span>
+      <span>✉️ belentani7pedro@gmail.com</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">PERFIL PROFESIONAL</div>
+    <div class="summary">Analista senior con 8+ años de trayectoria en decodificación de patrones complejos y gestión de crisis operativas. Especializado en despliegue de soluciones de IA y automatización. Experto en navegación de entornos regulatorios y tecnológicos bajo presión. Como artista, fusiona R&B, pop y electrónica en un universo de fantasía sonora. Como ingeniero, construye las herramientas que hacen posible esa visión.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">EXPERIENCIA LABORAL</div>
+    <div class="timeline">
+      <div class="timeline-item current">
+        <div class="timeline-dot"></div>
+        <div class="exp-header">
+          <span class="exp-role">Content Strategist & Data Analyst</span>
+          <span class="exp-period">2019 — 2025 · 6 años</span>
+        </div>
+        <div class="exp-company">TELUS DIGITAL (Google Search Project)</div>
+        <ul class="exp-list">
+          <li>Análisis de patrones de comportamiento humano a escala en Trust & Safety</li>
+          <li>Decodificación de patrones complejos y gestión de crisis operativas</li>
+          <li>Despliegue de soluciones de IA y automatización para optimización de flujos de trabajo</li>
+          <li>Navegación de entornos regulatorios y tecnológicos bajo presión</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-header">
+          <span class="exp-role">Customer Operations & Team Reference</span>
+          <span class="exp-period">2016 — 2018</span>
+        </div>
+        <div class="exp-company">GRUPO INDITEX</div>
+        <ul class="exp-list">
+          <li>Gestión de operaciones al cliente</li>
+          <li>Referente de equipo en servicio al cliente</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">HABILIDADES TÉCNICAS</div>
+    <div class="skills-section">
+      <div class="skill-cat">
+        <h4>AI / ML</h4>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>OpenAI API</span><span>95%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Claude API</span><span>92%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:92%"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Gemini API</span><span>88%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>LangChain / CrewAI</span><span>85%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Prompt Engineering</span><span>97%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:97%"></div></div></div>
+        <div class="skill-tags"><span class="skill-tag">RAG</span><span class="skill-tag">Fine-tuning</span><span class="skill-tag">Multi-Agent Systems</span></div>
+      </div>
+      <div class="skill-cat">
+        <h4>Backend</h4>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Python</span><span>90%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>FastAPI</span><span>88%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Node.js / Express</span><span>82%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:82%"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>PostgreSQL</span><span>80%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>REST / GraphQL</span><span>85%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+        <div class="skill-tags"><span class="skill-tag">Redis</span></div>
+      </div>
+      <div class="skill-cat">
+        <h4>Frontend</h4>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>HTML5 / CSS3</span><span>95%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>JavaScript</span><span>88%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>React / Next.js</span><span>82%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:82%"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Three.js / GSAP</span><span>78%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:78%"></div></div></div>
+        <div class="skill-tags"><span class="skill-tag">Web Audio API</span><span class="skill-tag">Responsive Design</span></div>
+      </div>
+      <div class="skill-cat">
+        <h4>DevOps & Tools</h4>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Docker</span><span>80%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>GitHub Actions / CI/CD</span><span>82%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:82%"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>AWS / Cloudflare</span><span>75%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div></div>
+        <div class="skill-tags"><span class="skill-tag">Vercel</span><span class="skill-tag">Git</span><span class="skill-tag">n8n</span><span class="skill-tag">MCP Protocol</span><span class="skill-tag">Ollama</span></div>
+      </div>
+      <div class="skill-cat" style="grid-column: 1 / -1;">
+        <h4>Creative</h4>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Composición musical</span><span>90%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Producción de audio</span><span>88%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Diseño web</span><span>85%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+        <div class="skill-tags"><span class="skill-tag">Motion Graphics</span><span class="skill-tag">Storytelling transmedia</span><span class="skill-tag">Video Editing</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">PROYECTOS DESTACADOS</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-name">Judas Experience</div>
+        <div class="project-type">Web Inmersiva</div>
+        <div class="project-desc">Experiencia web cyberpunk con Three.js, audio espacial, terminal hacker y lore transmedia</div>
+        <div class="project-tech"><span>Three.js</span><span>Web Audio</span><span>GSAP</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-name">Belentani AI Ecosystem</div>
+        <div class="project-type">Sistema Multi-Agente</div>
+        <div class="project-desc">Ecosistema de IA con múltiples agentes para composición y producción musical</div>
+        <div class="project-tech"><span>Python</span><span>LangChain</span><span>CrewAI</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-name">Los Hermanos</div>
+        <div class="project-type">AI Agent System</div>
+        <div class="project-desc">Sistema de agentes colaborativos para producción musical y gestión de contenido</div>
+        <div class="project-tech"><span>FastAPI</span><span>OpenAI</span><span>Redis</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-name">Noia Core v3</div>
+        <div class="project-type">Plataforma AI</div>
+        <div class="project-desc">Núcleo de procesamiento inteligente para automatización de contenido</div>
+        <div class="project-tech"><span>Python</span><span>n8n</span><span>Docker</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-name">Cassandra Complex</div>
+        <div class="project-type">Salud Mental</div>
+        <div class="project-desc">Portal de salud mental con 7 agentes IA para población vulnerable</div>
+        <div class="project-tech"><span>React</span><span>AI Agents</span><span>Next.js</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-name">CV AI Launcher</div>
+        <div class="project-type">Herramienta</div>
+        <div class="project-desc">Generador inteligente de CVs optimizados para ATS con personalización por IA</div>
+        <div class="project-tech"><span>Python</span><span>FastAPI</span><span>HTML</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">FORMACIÓN</div>
+    <div class="edu-item">
+      <div class="edu-degree">Master en AI for Creative Industries</div>
+      <div class="edu-school">LABASAD · 2025-2026</div>
+      <div class="edu-status">En curso (oct 2026)</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">First Certificate in English (B2)</div>
+      <div class="edu-school">Master Language · 2020</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">FP Grado Medio, Actividades Comerciales</div>
+      <div class="edu-school">Centre d'Estudis Sant Francesc · 2015</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">IDIOMAS</div>
+    <div class="languages">
+      <div class="lang-item"><div class="lang-dot"></div>Portugués <span style="color:var(--text-muted);font-size:0.75rem">· Nativo</span></div>
+      <div class="lang-item"><div class="lang-dot"></div>Español <span style="color:var(--text-muted);font-size:0.75rem">· Nativo</span></div>
+      <div class="lang-item"><div class="lang-dot"></div>Catalán <span style="color:var(--text-muted);font-size:0.75rem">· Nativo</span></div>
+      <div class="lang-item"><div class="lang-dot secondary"></div>Inglés <span style="color:var(--text-muted);font-size:0.75rem">· C1</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">DIFERENCIADOR</div>
+    <div class="diff-badge">
+      <strong>Capacidad única de análisis sistémico aplicado</strong> — combina pensamiento computacional con comprensión profunda de comportamiento humano, permitiendo diseñar sistemas que no solo procesan datos sino que <strong>entienden contexto</strong>.
+    </div>
+  </div>
+</div>
+</body>
+</html>

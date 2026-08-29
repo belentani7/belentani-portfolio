@@ -1,7 +1,23 @@
+# Dependencies
 node_modules/
+dist/
+build/
 .next/
-out/
+.nuxt/
+
+# Environment
 .env
 .env.local
-*.tsbuildinfo
-next-env.d.ts
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Output
+*.log
+coverage/
