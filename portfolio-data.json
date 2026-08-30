@@ -1,0 +1,169 @@
+{
+  "author": "Pedro Belentani",
+  "role": "AI Engineer & Creative Technologist",
+  "location": "Barcelona, España",
+  "email": "belentani7pedro@gmail.com",
+  "projects": [
+    {
+      "name": "Judas Experience",
+      "type": "Web Inmersiva",
+      "tech": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Three.js",
+        "GSAP",
+        "Web Audio API"
+      ],
+      "description": "Experiencia web inmersiva cyberpunk con terminal hacker, audio espacial, partículas 3D y lore transmedia.",
+      "status": "Activo",
+      "year": "2026"
+    },
+    {
+      "name": "Belentani AI Ecosystem",
+      "type": "Sistema Multi-Agente",
+      "tech": [
+        "Python",
+        "OpenAI",
+        "Claude",
+        "Gemini",
+        "MCP",
+        "FastAPI"
+      ],
+      "description": "Ecosistema de IA con múltiples agentes especializados para composición, producción y gestión artística.",
+      "status": "Activo",
+      "year": "2025-2026"
+    },
+    {
+      "name": "Los Hermanos - Sistema Multi-Agente",
+      "type": "AI Agent System",
+      "tech": [
+        "Python",
+        "LangChain",
+        "CrewAI",
+        "OpenAI",
+        "Claude"
+      ],
+      "description": "Sistema de agentes de IA colaborativos para producción musical y gestión de contenido.",
+      "status": "Activo",
+      "year": "2025"
+    },
+    {
+      "name": "Noia Core v3",
+      "type": "Plataforma AI",
+      "tech": [
+        "Python",
+        "FastAPI",
+        "React",
+        "PostgreSQL",
+        "Redis"
+      ],
+      "description": "Núcleo de procesamiento inteligente para automatización de contenido.",
+      "status": "En desarrollo",
+      "year": "2026"
+    },
+    {
+      "name": "Belentani Web Portal",
+      "type": "Sitio Web",
+      "tech": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Responsive"
+      ],
+      "description": "Portal web oficial del artista con discografía, bio y redes sociales.",
+      "status": "Activo",
+      "year": "2024-2026"
+    },
+    {
+      "name": "DigitalPlat FreeDomain",
+      "type": "Plataforma Digital",
+      "tech": [
+        "Web Development",
+        "Domain Management"
+      ],
+      "description": "Plataforma de dominios gratuitos y servicios digitales.",
+      "status": "Activo",
+      "year": "2026"
+    },
+    {
+      "name": "CV AI Launcher",
+      "type": "Herramienta Profesional",
+      "tech": [
+        "Python",
+        "AI/ML",
+        "Document Generation"
+      ],
+      "description": "Generador inteligente de CVs optimizados para ATS con personalización por IA.",
+      "status": "Activo",
+      "year": "2026"
+    },
+    {
+      "name": "Mesa de Trabajo - Análisis Thiago",
+      "type": "Investigación/Análisis",
+      "tech": [
+        "Análisis forense",
+        "Psicología",
+        "Documentación"
+      ],
+      "description": "Análisis completo de caso con informes forenses, psicológicos y recomendaciones.",
+      "status": "Completado",
+      "year": "2026"
+    }
+  ],
+  "skills": {
+    "Frontend": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "React",
+      "Next.js",
+      "Three.js",
+      "GSAP",
+      "Web Audio API",
+      "Responsive Design"
+    ],
+    "Backend": [
+      "Python",
+      "FastAPI",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Redis",
+      "REST APIs"
+    ],
+    "AI/ML": [
+      "OpenAI API",
+      "Claude API",
+      "Gemini API",
+      "LangChain",
+      "CrewAI",
+      "RAG",
+      "Fine-tuning"
+    ],
+    "DevOps": [
+      "Docker",
+      "GitHub Actions",
+      "CI/CD",
+      "AWS",
+      "Cloudflare",
+      "Vercel"
+    ],
+    "Creative": [
+      "Composición musical",
+      "Producción de audio",
+      "Diseño web",
+      "Motion Graphics",
+      "Storytelling transmedia"
+    ],
+    "Tools": [
+      "Git",
+      "VS Code",
+      "Figma",
+      "Adobe Suite",
+      "Terminal CLI",
+      "MCP Protocol"
+    ]
+  },
+  "generated": "2026-06-27T02:48:00.566Z"
+}
