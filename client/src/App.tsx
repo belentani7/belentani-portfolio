@@ -1,3 +1,4 @@
+import HeroShader from './components/HeroShader';
 /* DESIGN: Órbita de Judas — una experiencia editorial oscura, precisa y accesible. */
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
