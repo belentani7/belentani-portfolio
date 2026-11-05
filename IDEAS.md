@@ -1,89 +1,85 @@
-# BELENTANI | Symphony of Vines - Brainstorm de Diseño
+# Dirección de diseño — BELENTANI | Judas Orbit
 
-## Filosofía de Diseño Elegida: **Sci-Fi Cinematográfico Neón Rojo**
+## Tres rutas exploradas
 
-### Design Movement
-**Cyberpunk Futurista + Cine de Ciencia Ficción Oscura** (inspirado en Blade Runner, Tron, The Matrix). Estética de "nave siendo hackeada en tiempo real", narrativa de supervivencia digital.
+| Tema | Introducción breve | Probabilidad |
+|---|---|---:|
+| **Archivo Litúrgico** | Una interfaz editorial de archivo oscuro, en la que los textos se descubren como documentos recuperados. La emoción nace de la tipografía y del silencio, no del espectáculo. | 0.04 |
+| **Órbita de Judas** | Un viaje espacial de neón rojo sobre una esfera distante: cada sección es una coordenada del anillo y el contenido aparece como una transmisión recuperada. | 0.07 |
+| **Escenario de Ceniza** | Un portfolio de contraste mineral con fotografía monocroma, grano y grandes titulares recortados. El tono es humano, físico y casi teatral. | 0.02 |
 
-### Core Principles
+## Dirección seleccionada: Órbita de Judas
 
-1. **Inmersión Espacial**: El usuario viaja por un planeta neón con anillos. La navegación no es lineal, es un viaje 3D donde cada sección es un "punto de órbita".
+### Movimiento de diseño
 
-2. **Narrativa de Hackeo**: La interfaz muestra constantemente intentos de "localización" y "hackeo". Datos técnicos del usuario (IP, navegador, dispositivo) se visualizan como si fuera un sistema siendo atacado.
+La propuesta combina el **diseño editorial cinematográfico** con una interfaz espacial de precisión. No es un dashboard ni una interfaz cyberpunk genérica: el rojo funciona como una señal de transmisión, y la astronomía como estructura narrativa.
 
-3. **Contraste Extremo**: Fondo negro profundo (#000000) con acentos rojo neón (#FF0033, #FF1744). Tipografía blanca/gris claro. Cero ruido visual innecesario.
+### Principios rectores
 
-4. **Cinematografía en Tiempo Real**: Cámara se mueve suavemente entre secciones. Transiciones tipo "corte cinematográfico". Cada sección es un "acto" de una película.
+1. **Una escena, una función.** El planeta acompaña y orienta; nunca tapa el texto ni sustituye la navegación.
+2. **La narrativa es un recorrido.** Cada punto del anillo corresponde a un capítulo identificable y accesible, con su propio ritmo y jerarquía.
+3. **Señal antes que decoración.** Las líneas, coordenadas y estados técnicos explican la interfaz o sostienen el tono; se elimina cualquier gráfico sin función.
+4. **Calma bajo tensión.** La amenaza de “interferencia” es una ficción visual, contenida por mucho espacio negativo, copy conciso y transiciones legibles.
 
-### Color Philosophy
+### Filosofía de color
 
-| Color | Uso | Razón |
-|-------|-----|-------|
-| #000000 (Negro profundo) | Fondo principal | Espacio vacío, inmensidad, contraste máximo |
-| #FF0033 (Rojo neón) | Planeta, anillos, acentos | Peligro, energía, "sistema comprometido" |
-| #FF1744 (Rojo más brillante) | Efectos de glitch, warnings | Urgencia, alertas de hackeo |
-| #FFFFFF / #E0E0E0 (Blanco/Gris claro) | Texto, UI | Legibilidad extrema, "código limpio" |
-| #0A0E27 (Azul muy oscuro) | Fondos secundarios | Profundidad, "espacio profundo" |
-| #00FF88 (Verde neón) | Detalles secundarios, éxito | Contraste con rojo, "sistema activo" |
+El fondo es negro tinta y gris profundo para absorber ruido visual. El rojo de señal `#FF3B44` pertenece a BELENTANI y marca ruta, selección y energía; el marfil cálido `#F4EFEA` devuelve humanidad al contenido largo. Un tono ámbar apagado se reserva para advertencias estéticas, nunca para una falsa alerta del sistema.
 
-### Layout Paradigm
+### Paradigma de layout
 
-**No es un sitio tradicional.** Es una **experiencia 3D inmersiva**:
+La página no se organiza como una cuadrícula de tarjetas. Se articula en una **columna narrativa desplazada**, con una órbita SVG fija a la izquierda en escritorio y una línea de ruta horizontal compacta en móvil. El planeta se mantiene como masa visual al fondo y cambia de posición con el capítulo activo.
 
-- **Hero/Intro**: Planeta neón flotando en el espacio. La cámara orbita alrededor. El usuario ve 3-4 "puntos de interés" en los anillos.
-- **Navegación**: Cada sección (Home, The Artist, Music, Studio, Judas, Contact) es un "punto" en los anillos del planeta. Hacer clic = la cámara viaja hacia ese punto.
-- **Transiciones**: Suave, cinematográfica. La nave se mueve, el planeta rota, los anillos brillan.
-- **Contenido**: Cuando llegas a una sección, la cámara se detiene. Aparece un overlay oscuro semi-transparente con el contenido (texto, imágenes, formulario).
-- **Sistema de Hackeo**: En cada sección, hay un "terminal" que muestra datos técnicos del usuario, intentos de "localización", código rojo parpadeante.
+### Elementos de firma
 
-### Signature Elements
+1. Un planeta rojo compuesto por capas CSS y una sombra de eclipse, acompañado de anillos SVG discontinuos.
+2. Marcadores de capítulo que viajan por los anillos y dejan una estela mínima.
+3. Una señal de “interferencia” abstracta —no un hackeo real— con líneas de exploración y fragmentos de texto breves.
 
-1. **Planeta Neón Rojo con Anillos**: Centro visual. Rotación lenta. Los anillos tienen "pulsos" de luz que viajan alrededor.
+### Filosofía de interacción
 
-2. **Nave Viva**: Pequeña nave bioluminiscente que orbita el planeta. Tiene "venas" de luz roja que palpitan. Cuando el usuario navega, la nave se mueve.
+La interacción convierte la visita en exploración sin encerrar al usuario. Los botones de órbita realizan scroll suave; el foco de teclado revela etiquetas; el estado activo se lee por color, texto y posición. El panel técnico revela el navegador y las preferencias de movimiento únicamente en local, sin IP, geolocalización ni recolección de información sensible.
 
-3. **Terminal de Hackeo**: Overlay en la esquina inferior derecha (o que aparece en cada sección). Muestra:
-   - IP del usuario
-   - Navegador y versión
-   - Dispositivo (móvil/desktop)
-   - "Intentos de localización" (números cambiantes)
-   - Código rojo parpadeante: `> LOCALIZACIÓN FALLIDA... REINTENTANDO...`
+### Animación
 
-4. **Glitch Effects**: Ocasionalmente, la pantalla "glitchea" (distorsión de líneas rojas, duplicación de píxeles, parpadeo). Refuerza la idea de "sistema siendo atacado".
+Los anillos rotan con cadencia muy lenta; la nave es un punto luminoso con estela, no un sprite. Las entradas de capítulos combinan opacidad y traslación vertical inferior a 18 px, con `cubic-bezier(0.23, 1, 0.32, 1)` y duraciones de 180–320 ms. Todo movimiento no esencial se desactiva mediante `prefers-reduced-motion`.
 
-### Interaction Philosophy
+### Sistema tipográfico
 
-- **Hover**: Los elementos brillan más, el rojo se intensifica.
-- **Click**: La cámara se mueve suavemente hacia ese punto. Transición cinematográfica.
-- **Scroll**: En secciones con contenido, el scroll es suave. El fondo 3D continúa animándose.
-- **Respuesta Inmediata**: Cada interacción tiene feedback visual (sonido opcional de "beep" electrónico, destello de luz).
+`Space Grotesk` aporta precisión contemporánea a la interfaz y titulares; `DM Mono` se reserva para coordenadas y microcopy. Los titulares mezclan mayúscula abierta, gran tamaño y tracking negativo; el cuerpo mantiene una medida de lectura máxima de 62 caracteres y generosa interlínea.
 
-### Animation
+### Esencia de marca
 
-- **Planeta**: Rotación lenta y constante (1 rotación cada 30 segundos).
-- **Anillos**: Pulsos de luz que viajan alrededor (efecto de energía fluyendo).
-- **Nave**: Orbita suave alrededor del planeta. Cuando el usuario navega, acelera y se mueve hacia el destino.
-- **Transiciones de Cámara**: 2-3 segundos de movimiento suave (ease-in-out). Nunca instantáneo.
-- **Glitch**: Cada 10-15 segundos, pequeño glitch de 200ms (líneas rojas, parpadeo).
-- **Terminal**: Números cambiantes cada 1-2 segundos, código parpadeante.
-- **Micro-animaciones**: Botones se escalan ligeramente al hover. Texto brilla sutilmente.
+**BELENTANI transforma voz, imagen y mito en un mapa sonoro para quien busca una experiencia artística sin plantilla.** Personalidad: **ritual, preciso, magnético**.
 
-### Typography System
+### Voz de marca
 
-| Elemento | Fuente | Peso | Tamaño | Uso |
-|----------|--------|------|--------|-----|
-| Títulos Principales | Courier New / Roboto Mono | Bold (700) | 48-64px | "BELENTANI", "JUDAS", secciones |
-| Subtítulos | Courier New | Regular (400) | 24-32px | "Next Release", "The Artist" |
-| Body Text | Inter / Roboto | Regular (400) | 14-16px | Biografía, descripciones |
-| Terminal/Código | Courier New | Regular (400) | 12-14px | Datos técnicos, "hackeo" |
-| Botones | Inter | Medium (500) | 14-16px | CTAs |
+Los titulares son breves, sensoriales y afirmativos. Los CTAs no presionan: invitan a entrar o escuchar.
 
-**Nota**: Usar monospace (Courier New) para reforzar la estética "sistema/código". Usar sans-serif (Inter/Roboto) para legibilidad en cuerpo de texto.
+> “La señal no llegó desde lejos. La construimos aquí.”
 
----
+> “Entra en la órbita. Escucha lo que queda fuera del archivo.”
 
-## Resumen Ejecutivo
+### Wordmark y logo
 
-**BELENTANI | Symphony of Vines** es una experiencia web inmersiva que presenta a Pedro Belentani como un "artefacto" artístico navegando un universo sci-fi. El usuario viaja por un planeta neón rojo, con una nave siendo "hackeada" en tiempo real. Cada sección (Home, The Artist, Music, Studio, Judas, Contact) es un punto de órbita. La interfaz muestra constantemente datos técnicos del usuario como si fuera un "sistema siendo localizado". Estética: cinematográfica, oscura, rojo neón, sin ruido visual. Tecnología: Three.js para 3D, React para UI, Framer Motion para animaciones 2D.
+El wordmark se construye como `B / BELENTANI`, donde la barra del corte funciona como una línea de órbita. El símbolo es una B geométrica abierta, atravesada por un eje de señal; no utiliza el nombre de marca como logotipo por defecto.
 
-**Inspiración**: Symphony of Vines (Unseen Studio), Blade Runner, Tron, The Matrix, Cyberpunk 2077.
+### Color de firma
+
+**Orbit Red — `#FF3B44`**.
+
+## Arquitectura de contenido
+
+| Capítulo | Propósito | Acción principal |
+|---|---|---|
+| Home | Presentar la próxima etapa “Judas” y abrir el viaje. | Entrar en la órbita |
+| The Artist | Exponer una bio editorial comprobable y la mezcla de R&B, pop y electrónica. | Leer el manifiesto |
+| Music | Ordenar títulos y plataformas como archivo sonoro. | Abrir plataformas |
+| Studio | Presentar la práctica creativa y la colaboración como proceso, sin prometer herramientas inexistentes. | Ver el proceso |
+| Judas | Presentar la mitología como ficción artística, sin acusaciones ni diagnósticos. | Abrir el archivo |
+| Contact | Ofrecer una vía de contacto accesible. | Escribir un mensaje |
+
+## Style Decisions
+
+- Cada capítulo conserva al menos un artefacto orbital visible: fragmento de anillo, marcador de coordenada, línea de transmisión o sombra de planeta.
+- **Orbit Red `#FF3B44`** solo funciona como señal activa: ruta, selección, CTA, marcador de capítulo, advertencia o interferencia.
+- La marca se presenta siempre como **`B / BELENTANI`**, donde la barra funciona como eje de órbita; no se utilizará como etiqueta genérica junto a un icono cuadrado.
