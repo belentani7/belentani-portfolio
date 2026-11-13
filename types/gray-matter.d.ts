@@ -1,6 +1,12 @@
 declare module "gray-matter" {
   interface GrayMatterFile {
-    data: Record<string, unknown>;
+    data: {
+      title?: string;
+      date?: string;
+      excerpt?: string;
+      tags?: string[];
+      [key: string]: unknown;
+    };
     content: string;
   }
 
