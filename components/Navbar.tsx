@@ -53,8 +53,16 @@ export default function Navbar() {
               </Link>
             ))}
             <a
+              href="https://www.belentani.es"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 text-sm text-gold hover:text-gold-light transition-colors rounded-lg hover:bg-white/5"
+            >
+              Plataforma ↗
+            </a>
+            <a
               href="#contact"
-              className="ml-4 px-5 py-2 rounded-lg bg-gold/10 border border-gold/20 text-gold text-sm font-medium hover:bg-gold/20 transition-colors"
+              className="ml-2 px-5 py-2 rounded-lg bg-gold/10 border border-gold/20 text-gold text-sm font-medium hover:bg-gold/20 transition-colors"
             >
               Hablemos
             </a>
@@ -111,6 +119,18 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               ))}
+              <motion.a
+                href="https://www.belentani.es"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navLinks.length * 0.05 }}
+                className="block py-4 text-2xl font-display text-gold hover:text-gold-light transition-colors text-center"
+              >
+                Plataforma ↗
+              </motion.a>
             </div>
           </motion.div>
         )}
