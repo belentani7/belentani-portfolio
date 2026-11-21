@@ -1,3 +1,13 @@
+# Generated operating-system metadata and Python bytecode
+Thumbs.db
+Desktop.ini
+desktop.ini
+._*
+__MACOSX/
+__pycache__/
+*.pyc
+*.pyo
+
 
 # --- guardias-sinc-2026-10-08 (auto) ---
 node_modules/
